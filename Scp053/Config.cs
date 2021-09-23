@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Exiled.API.Interfaces;
+﻿using Exiled.API.Interfaces;
 
 namespace Scp053
 {
@@ -16,6 +11,6 @@ namespace Scp053
 
         public string GlobalMessage { get; set; } = "The <color=red>SCP-053</color> has spawned this round!";
         public int GlobalMessageDuration { get; set; } = 6;
-        public int SpawnChance { get; set; } = 10;
+        public int SpawnChance { get; set; } = 12;
     }
 }
