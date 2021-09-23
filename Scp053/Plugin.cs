@@ -24,6 +24,9 @@ namespace Scp053
         {
             base.OnDisabled();
         }
+        /// <summary>
+        /// reloading plguin
+        /// </summary>
         public override void OnReloaded(){ }
     }
 }
