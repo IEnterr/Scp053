@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Scp053
 {
-    public class Class1
+    public class EventHandler
     {
     }
 }
