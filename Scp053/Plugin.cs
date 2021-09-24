@@ -14,7 +14,7 @@ namespace Scp053
         private EventHandler handler;
         public override string Name => "Scp053";
         public override string Author => "Enterr";
-        public override Version Version => new Version(0,1,0);
+        public override Version Version => new Version(0,1,1);
         public override Version RequiredExiledVersion => new Version(3,0,0);
         public override void OnEnabled()
         {
