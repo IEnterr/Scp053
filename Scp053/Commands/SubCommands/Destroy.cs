@@ -30,15 +30,33 @@ namespace Scp053.Commands.SubCommands
                 response = $"Insufficient permission. Required: {RequiredPermission}";
                 return false;
             }
-            
-
-            foreach(Player player in API.AllScp053) 
+            var args = arguments.ToArray();
+            switch (args[1]) 
             {
-                API.Destroy053(player);
+                case "all":
+                case "*":
+                    foreach (Player player in API.AllScp053)
+                    {
+                        API.Destroy053(player);
+                    }
+
+                    response = "Killed all SCP-053 users successfully.";
+                    return false;
+                default:
+                    var ply = Player.Get(args[1]);
+                    if(ply is null) 
+                    {
+                        response = "The player is not exists";
+                        return false;
+                    }
+                    API.Destroy053(ply);
+
+                    response = ply.Nickname + " has destroyed succesfully!";
+                    return false;
+
             }
 
-            response = "Killed all SCP-053 users successfully.";
-            return false;
+            
         }
     }
 }

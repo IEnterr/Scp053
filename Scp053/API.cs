@@ -42,7 +42,7 @@ namespace Scp053
         public static void Destroy053(Player player)
         {
             //Dont do anything when player don`t spawned as Scp053
-            if (IsScp053(player)) return;
+            if (!IsScp053(player)) return;
             
             player.SessionVariables.Remove("IsScp053");
             Scp096.TurnedPlayers.Remove(player);
