@@ -18,15 +18,15 @@ namespace Scp053
         public override Version RequiredExiledVersion => new Version(3,0,0);
         public override void OnEnabled()
         {
+            RegisterEvents();
             base.OnEnabled();
         }
         public override void OnDisabled()
         {
+            UnregisterEvents();
             base.OnDisabled();
         }
-        /// <summary>
-        /// reloading plguin
-        /// </summary>
+        
         public override void OnReloaded(){ }
 
         public void RegisterEvents() 
@@ -45,7 +45,17 @@ namespace Scp053
         }
         public void UnregisterEvents() 
         {
-        
+            PlayerHandler.Left -= handler.OnLeft;
+            PlayerHandler.Hurting -= handler.OnHurting;
+            PlayerHandler.EnteringPocketDimension -= handler.OnEnteringPocketDimension;
+            PlayerHandler.Died -= handler.OnDied;
+            PlayerHandler.ChangingRole -= handler.OnChangingRole;
+            PlayerHandler.Escaping -= handler.OnEscaping;
+
+            ServerHandler.EndingRound -= handler.OnEndingRound;
+            ServerHandler.RoundStarted -= handler.OnRoundStart;
+
+            handler = null;
         }
     }
 }
