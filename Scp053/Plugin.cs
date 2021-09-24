@@ -8,8 +8,8 @@ namespace Scp053
 {
     public class Plugin : Plugin<Config>
     {
-        private readonly static Lazy<Plugin> LazyInstance = new Lazy<Plugin>(() => new Plugin());
-        public static Plugin Instance => LazyInstance.Value;
+        
+        public static Plugin Instance { get; private set; }
 
         private EventHandler handler;
         public override string Name => "Scp053";
@@ -18,13 +18,17 @@ namespace Scp053
         public override Version RequiredExiledVersion => new Version(3,0,0);
         public override void OnEnabled()
         {
+            Instance = this;
             RegisterEvents();
             base.OnEnabled();
         }
         public override void OnDisabled()
         {
+
             UnregisterEvents();
+            Instance = null;
             base.OnDisabled();
+            
         }
         
         public override void OnReloaded(){ }
